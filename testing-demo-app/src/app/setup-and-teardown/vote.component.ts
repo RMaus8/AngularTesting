@@ -3,10 +3,10 @@ export class VoteComponent {
   totalVotes = 0; 
 
   upVote() { 
-    this.totalVotes++;
+	this.totalVotes++;
   }
 
   downVote() { 
-    this.totalVotes--;
+	this.totalVotes--;
   }
 }
