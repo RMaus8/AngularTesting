@@ -20,7 +20,7 @@ describe('componentComponent', () => {
 	There are also 'teardown' functions - afterEach() and afterAll()
 	-these are used to revert conditions after tests to ensure they don't interfere with other tests
 	*/
-	beforeEach(async(() => {
+	beforeEach(() => {
 		TestBed.configureTestingModule({
 			imports: [
 				RouterTestingModule
@@ -28,14 +28,14 @@ describe('componentComponent', () => {
 			declarations: [
 				AppComponent
 			],
-		}).compileComponents();
+		});
 
 		//note: 'debugElement' is just a wrapper that allows the tests to work safely across all supported platforms
 		//without it, for example, tests designed for browser platforms wouldn't be able to run in non-browser platforms
-		fixture = TestBed.createComponent(AppComponent); //this just creates an instance of component in test environment
+		fixture = TestBed.createComponent(AppComponent); //this is a wrapper that just creates an instance of component in test environment
 		component = fixture.debugElement.componentInstance; //this variable allows us to interact with component class and class methods
 		templateHTML = fixture.debugElement.nativeElement; //this variable contains component's html for use to interact with
-	}));
+	});
 
 	
 	//'it' is the individual test method that accepts a test description and callback as its parameters
