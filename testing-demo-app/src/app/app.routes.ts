@@ -1,7 +1,7 @@
-import { HomeComponent } from './Integration Tests/home/home.component';
-import { TodosComponent } from './Integration Tests/todos/todos.component';
-import { UsersComponent } from './Integration Tests/users/users.component'; 
-import { UserDetailsComponent } from './Integration Tests/user-details/user-details.component';
+import { HomeComponent } from './integration-tests/home/home.component';
+import { TodosComponent } from './integration-tests/todos/todos.component';
+import { UsersComponent } from './integration-tests/users/users.component'; 
+import { UserDetailsComponent } from './integration-tests/user-details/user-details.component';
 
 export const routes = [
   { path: 'users/:id', component: UserDetailsComponent },

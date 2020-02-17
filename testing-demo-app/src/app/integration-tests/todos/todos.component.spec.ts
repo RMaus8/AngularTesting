@@ -1,14 +1,14 @@
 import { HttpClientModule } from '@angular/common/http';
 import { TodoService } from './todo.service';
 /* tslint:disable:no-unused-variable */
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { TodosComponent } from './todos.component';
 import { from } from 'rxjs';
 
-
+// service test
 describe('TodosComponent', () => {
 	let component: TodosComponent;
 	let fixture: ComponentFixture<TodosComponent>;
@@ -32,6 +32,7 @@ describe('TodosComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
+	// for observables
 	it('should load todos from the server', () => {
 		// get the service from the testbed - this only works if service is registered via app.module
 		const service = TestBed.get(TodoService);
@@ -46,4 +47,15 @@ describe('TodosComponent', () => {
 		fixture.detectChanges();
 		expect(component.todos.length).toBe(3);
 	});
+	
+	// // for promises
+	// it('should load todos from the server', fakeAsync () => {
+	// 	const service = TestBed.get(TodoService);
+	// 	spyOn(service, 'getTodosPromise').and.returnValue(Promise.resolve([ [1, 2, 3] ]));
+
+	// 	fixture.detectChanges();
+
+	// 	tick();
+	// 	expect(component.todos.length).toBe(3);
+	// });
 });
