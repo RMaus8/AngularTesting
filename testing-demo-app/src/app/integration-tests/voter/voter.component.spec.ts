@@ -18,13 +18,13 @@ describe('VoterComponent', () => {
 	it('should render total votes', () => {
 		component.othersVote = 20;
 		component.myVote = 1;
-		//in test env, angular's change detection doesn't run automatically
-		//so you must trigger the change detection so that the dom element is updated
+		// in test env, angular's change detection doesn't run automatically
+		// so you must trigger the change detection so that the dom element is updated
 		fixture.detectChanges();
 
-		let de = fixture.debugElement.query(By.css('.vote-count'));
-		let html: HTMLElement = de.nativeElement;
-		
+		const de = fixture.debugElement.query(By.css('.vote-count'));
+		const html: HTMLElement = de.nativeElement;
+
 		expect(html.innerText).toContain('21');
 	});
 
@@ -32,15 +32,15 @@ describe('VoterComponent', () => {
 		component.myVote = 1;
 		fixture.detectChanges();
 
-		let de = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
+		const de = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
 
-		expect(de.classes['highlighted']).toBeTruthy();
+		expect(de.classes.highlighted).toBeTruthy();
 	});
 
 	it('should increase total votes when I click the upvote button', () => {
-		let button = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
+		const button = fixture.debugElement.query(By.css('.glyphicon-menu-up'));
 		button.triggerEventHandler('click', null);
 
 		expect(component.totalVotes).toBe(1);
-	})
+	});
 });
